@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class SalleDeSport {
+    private List<Adherent> adherents;
+    private List<Seance> seances;
+
+    public SalleDeSport(){
+        adherents = new ArrayList<>();
+        seances = new ArrayList<>();
+    }
+
+    public void ajouterAdherent(Adherent a) {
+        adherents.add(a);
+    }
+
+    public void ajouterSeance(Seance s) {
+        seances.add(s);
+    }
+
+    public List<Seance> seancesDisponibles() {
+        return new ArrayList<>(seances);
+    }
+
+    public List<Adherent> adherentsAvecSauna() {
+        List<Adherent> adherentsSauna = new ArrayList<>();
+        for (Adherent a : adherents) {
+            if (a.getAbonnement().permetAccesSauna()) {
+                adherentsSauna.add(a);
+            }
+        }
+        return adherentsSauna;
+    }
+
+    public double chiffreAffairesPrestations(){
+        double total = 0;
+        for (Adherent a : adherents) {
+            total += a.depensesTotales();
+        }
+        return total;
+    }
+
+    public Adherent trouverAdherent(int id) {
+        for (Adherent a : adherents) {
+            if (a.getId() == id) {
+                return a;
+            }
+        }
+        throw new IllegalArgumentException("L'adherent " + id + " n'existe pas");
+
+    }
+
+
+
+}
