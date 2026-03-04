@@ -1,12 +1,12 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public abstract class Abonnement {
     private String reference;
-    private LocalDateTime dateDebut;
+    private LocalDate dateDebut;
     private int dureeMois;
     private double prixMensuel;
 
-    public Abonnement(String reference, LocalDateTime dateDebut, int dureeMois, double prixMensuel) {
+    public Abonnement(String reference, LocalDate dateDebut, int dureeMois, double prixMensuel) {
         this.reference = reference;
         this.dateDebut = dateDebut;
         this.dureeMois = dureeMois;
@@ -14,7 +14,7 @@ public abstract class Abonnement {
 
     }
 
-    public LocalDateTime dateFin() {
+    public LocalDate dateFin() {
         return dateDebut.plusMonths(dureeMois);
     }
 

@@ -24,9 +24,9 @@ public class Prestation {
 
     @Override
     public String toString() {
-        return "Code : " +
-                "Libelle : " +
-                "Prix : ";
+        return "Code : " + code +
+                "Libelle : " +  libelle +
+                "Prix : " + prix;
 
     }
 }
